@@ -1,1 +1,3 @@
-find $PWD \( -type f -or -type d \) -name ".*" -prune -o -print | wc -l
+count=$(ls -1 | wc -l)
+
+echo "$count"
