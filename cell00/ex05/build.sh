@@ -1,5 +1,5 @@
 if [ $# -eq 0 ]; then
-    echo "Usage: ./build.sh <folder_name1> <folder_name2> ..."
+    echo "No Arguement Supplies"
     exit 1
 fi
 
