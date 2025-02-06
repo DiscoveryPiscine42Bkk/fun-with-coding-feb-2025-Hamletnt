@@ -1,19 +1,44 @@
-$(document).ready(function() {
+$(document).ready(function () {
+    function escapeHTML(str) { 
+        return $("<div>").text(str).html(); // ป้องกัน XSS
+    }
+
+    function encodeBase64(str) {
+        return btoa(unescape(encodeURIComponent(str))); // Encode เป็น Base64
+    }
+
+    function decodeBase64(str) {
+        return decodeURIComponent(escape(atob(str))); // Decode กลับ
+    }
+
     function loadTasks() {
         let tasks = getCookies("tasks");
+        console.log("Loaded Cookie (Raw):", document.cookie); // Debug
+
         if (tasks) {
-            tasks.split("|~|").forEach(task => {
-                if (task) $("#ft_list").prepend(`<div class='task'>${task}</div>`);
+            tasks.split("|~|").reverse().forEach(task => { 
+                if (task) {
+                    let decodedTask = decodeBase64(task);
+                    console.log("Decoded Task:", decodedTask); // Debug
+                    $("#ft_list").prepend(
+                        $("<div>").addClass("task").text(decodedTask) 
+                    );
+                }
             });
         }
     }
 
     function saveTasks() {
         let taskArray = [];
-        $(".task").each(function() {
-            taskArray.push($(this).text());
+        $(".task").each(function () {
+            let encodedTask = encodeBase64($(this).text());
+            console.log("Encoded Task:", encodedTask); // Debug
+            taskArray.push(encodedTask);
         });
-        document.cookie = "tasks=" + taskArray.join("|~|") + "; path=/";
+
+        let finalCookie = "tasks=" + taskArray.join("|~|") + "; path=/";
+        document.cookie = finalCookie;
+        console.log("Saved Cookie:", finalCookie); // Debug
     }
 
     function getCookies(name) {
@@ -21,15 +46,18 @@ $(document).ready(function() {
         return match ? match[2] : "";
     }
 
-    $("#newTask").on("click", function() {
+    $("#newTask").on("click", function () {
         let task = prompt("Enter a new task:");
         if (task) {
-            $("#ft_list").prepend(`<div class='task'>${task}</div>`);
+            let escapedTask = escapeHTML(task);
+            $("#ft_list").prepend(
+                $("<div>").addClass("task").text(escapedTask)
+            );
             saveTasks();
         }
     });
 
-    $("#ft_list").on("click", ".task", function() {
+    $("#ft_list").on("click", ".task", function () {
         if (confirm("Do you want to delete this task?")) {
             $(this).remove();
             saveTasks();
