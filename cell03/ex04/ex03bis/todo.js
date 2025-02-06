@@ -1,40 +1,16 @@
 $(document).ready(function() {
-    function loadTasks() {
-        let tasks = getCookies("tasks");
-        if (tasks) {
-            tasks.split("|~|").forEach(task => {
-                if (task) $("#ft_list").prepend(`<div class='task'>${task}</div>`);
-            });
-        }
-    }
+    const setCookie = (name, value) => document.cookie = `${name}=${encodeURIComponent(value)}; path=/;`;
+    const getCookie = (name) => (document.cookie.match(`(^|;)\\s*${name}=([^;]+)`) || [])[2] ? decodeURIComponent(RegExp.$2) : "";
 
-    function saveTasks() {
-        let taskArray = [];
-        $(".task").each(function() {
-            taskArray.push($(this).text());
-        });
-        document.cookie = "tasks=" + taskArray.join("|~|") + "; path=/";
-    }
+    const saveTasks = () => setCookie("tasks", $("#ft_list").html());
+    $("#ft_list").html(getCookie("tasks") || "");
 
-    function getCookies(name) {
-        let match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-        return match ? match[2] : "";
-    }
-
-    $("#newTask").on("click", function() {
+    $("#newTask").click(() => {
         let task = prompt("Enter a new task:");
-        if (task) {
-            $("#ft_list").prepend(`<div class='task'>${task}</div>`);
-            saveTasks();
-        }
+        if (task) $("#ft_list").prepend(`<div class='task'>${task}</div>`), saveTasks();
     });
 
     $("#ft_list").on("click", ".task", function() {
-        if (confirm("Do you want to delete this task?")) {
-            $(this).remove();
-            saveTasks();
-        }
+        if (confirm("Do you want to delete this task?")) $(this).remove(), saveTasks();
     });
-
-    loadTasks();
 });

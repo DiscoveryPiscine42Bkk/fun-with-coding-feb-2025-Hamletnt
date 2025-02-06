@@ -6,84 +6,41 @@
     <title>Calculator</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        body{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-        }
-        .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 300px;
-            width: 350px;
-            background-color: bisque;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        input, select, button {
-            margin: 10px;
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; background: #f4f4f4; }
+        .container { display: flex; flex-direction: column; align-items: center; padding: 20px; width: 350px; background: bisque; border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+        input, select, button { margin: 10px; padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc; }
     </style>
 </head>
 <body>
     <div class="container">
         <input type="number" id="leftOperand" placeholder="Enter number" min="0">
         <select id="operator">
-            <option value="+">+</option>
-            <option value="-">-</option>
-            <option value="*">*</option>
-            <option value="/">/</option>
-            <option value="%">%</option>
+            <option>+</option><option>-</option><option>*</option><option>/</option><option>%</option>
         </select>
         <input type="number" id="rightOperand" placeholder="Enter number" min="0">
         <button id="calculateBtn">Try me!</button>
     </div>
     <script>
-        $(document).ready(function() {
-            $("#calculateBtn").on("click", function() {
-                let left = $("#leftOperand").val();
-                let right = $("#rightOperand").val();
-                let operator = $("#operator").val();
+        $(document).ready(() => {
+            let timeout;
 
-                if (left === "" || right === "" || left < 0 || right < 0) {
-                    alert("Error :(");
-                    return;
-                }
+            const resetTimer = () => {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => alert("Please, use me..."), 30000);
+            };
 
-                left = parseInt(left);
-                right = parseInt(right);
-                let result;
+            $(document).on("mousemove keydown click", resetTimer);
+            resetTimer(); // เริ่มนับเวลา
 
-                if ((operator === "/" || operator === "%") && right === 0) {
-                    alert("It’s over 9000!");
-                    console.log("It’s over 9000!");
-                    return;
-                }
+            $("#calculateBtn").click(() => {
+                let left = +$("#leftOperand").val(), right = +$("#rightOperand").val(), op = $("#operator").val();
+                if (left < 0 || right < 0 || isNaN(left) || isNaN(right)) return alert("Error :(");
+                if (["/", "%"].includes(op) && right === 0) return alert("It’s over 9000!");
 
-                switch (operator) {
-                    case "+": result = left + right; break;
-                    case "-": result = left - right; break;
-                    case "*": result = left * right; break;
-                    case "/": result = left / right; break;
-                    case "%": result = left % right; break;
-                }
-
-                alert("Result: " + result);
-                console.log("Result: " + result);
+                let result = eval(`${left} ${op} ${right}`);
+                alert("Result: " + result), console.log("Result: " + result);
+                resetTimer();
             });
-
-            setInterval(function() {
-                alert("Please, use me...");
-            }, 30000);
         });
     </script>
 </body>
