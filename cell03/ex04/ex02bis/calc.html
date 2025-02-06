@@ -6,7 +6,7 @@
     <title>Calculator</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        body{
+        body {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -54,14 +54,14 @@
                 let right = $("#rightOperand").val();
                 let operator = $("#operator").val();
 
-                if (left === "" || right === "" || left < 0 || right < 0) {
+                // ตรวจสอบว่าเป็นตัวเลขและเป็นจำนวนเต็มบวก
+                if (!/^\d+$/.test(left) || !/^\d+$/.test(right)) {
                     alert("Error :(");
                     return;
                 }
 
-                left = parseFloat(left);
-                right = parseFloat(right);
-                let result;
+                left = parseInt(left);
+                right = parseInt(right);
 
                 if ((operator === "/" || operator === "%") && right === 0) {
                     alert("It’s over 9000!");
@@ -69,18 +69,29 @@
                     return;
                 }
 
+                let result;
                 switch (operator) {
                     case "+": result = left + right; break;
                     case "-": result = left - right; break;
                     case "*": result = left * right; break;
                     case "/": result = left / right; break;
                     case "%": result = left % right; break;
+                    default:
+                        alert("Invalid operation!");
+                        return;
+                }
+
+                // Check result is int.
+                if (!Number.isInteger(result)) {
+                    alert("Error :(");
+                    return;
                 }
 
                 alert("Result: " + result);
                 console.log("Result: " + result);
             });
 
+            // แสดงแจ้งเตือนทุก 30 วินาที
             setInterval(function() {
                 alert("Please, use me...");
             }, 30000);
