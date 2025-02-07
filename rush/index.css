@@ -4,6 +4,9 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    background-image: url("https://images.unsplash.com/photo-1735596365888-ad6d151533f2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");   
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .container {
@@ -11,30 +14,42 @@ body {
 }
 
 h1 {
-    color: #333;
+    color: #ffffff;
 }
 
 p {
     font-size: 18px;
-    color: #666;
+    color: #ffffff;
 }
 
-.button-group {
-    margin-top: 20px;
+.row{
+    justify-content: center;
+    align-items: center;
 }
-
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 18px;
-    color: white;
-    background-color: #007bff;
-    text-decoration: none;
-    border-radius: 5px;
+.card {
+    width: 250px; /* กำหนดความกว้าง */
+    height: 400px; /* กำหนดความสูง */
+    overflow: hidden; /* ป้องกันไม่ให้เนื้อหาหรือภาพล้นออกจากขอบ */
     margin: 10px;
-    transition: background 0.3s ease;
 }
 
-.btn:hover {
-    background-color: #0056b3;
+.card-img-top {
+    object-fit: cover; /* ทำให้ภาพขยายเต็มกรอบการ์ดโดยไม่บิดเบี้ยว */
+    width: 100%;
+    height: 300px; /* กำหนดขนาดของรูปให้คงที่ */
+}
+
+.card-body {
+    height: calc(100% - 200px); /* ให้ส่วนของเนื้อหาภายในการ์ดไม่เกินขอบ */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.img{
+    width: 100%;
+    height: 100vh;
+    background-attachment: fixed;
+    object-fit: cover;
 }

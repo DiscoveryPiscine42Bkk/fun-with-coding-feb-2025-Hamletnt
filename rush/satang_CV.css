@@ -11,9 +11,17 @@ body {
     left: 0;
     z-index: -1;
 }
+
+/* เริ่มต้น navbar ไม่มีพื้นหลัง */
 .navbar {
-    background: rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease; /* ทำให้การเปลี่ยนแปลงพื้นหลังนุ่มนวล */
 }
+
+/* เมื่อ navbar ถูกเลื่อนผ่าน จะเปลี่ยนพื้นหลังเป็นสีดำ */
+.navbar-scrolled {
+    background-color: rgba(0, 0, 0, 0.8); /* สีดำทึบ */
+}
+
 #text-hi {
     width: 100%;
     height: 100vh;

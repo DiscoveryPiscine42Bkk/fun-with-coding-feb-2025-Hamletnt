@@ -87,7 +87,7 @@
     </section>
     
     <section id="Experience" class="my-5">
-        <div class="container"> <!-- ใช้ container เพื่อให้มีระยะห่างจากขอบหน้าจอ -->
+        <div class="container">
             <h3 class="text-center">Experience</h3>
             <div class="accordion" id="experienceAccordion">
                 <!-- Accordion items -->
@@ -174,7 +174,7 @@
                     </a>
                 </div>
                 <div class="col-md-2 text-center">
-                    <a href="https://www.linkedin.com/in/yourusername" target="_blank" class="btn btn-outline-dark" aria-label="Facebook">
+                    <a href="https://www.facebook.com/nattharat.wangjaidee/" target="_blank" class="btn btn-outline-dark" aria-label="Facebook">
                         <i class="bi bi-facebook"></i> Facebook
                     </a>
                 </div>
@@ -204,6 +204,20 @@
             },3000);
         }
         updateImage();
+
+        window.onscroll = function() {
+        changeNavbarBackground();
+        };
+
+        // ฟังก์ชันในการเปลี่ยนพื้นหลังของ navbar
+        function changeNavbarBackground() {
+            var navbar = document.querySelector(".navbar");
+            if (window.pageYOffset > 100) {  // เมื่อเลื่อนผ่าน 100px
+                navbar.classList.add("navbar-scrolled");
+            } else {
+                navbar.classList.remove("navbar-scrolled");
+            }
+        }
     </script>
 
 
