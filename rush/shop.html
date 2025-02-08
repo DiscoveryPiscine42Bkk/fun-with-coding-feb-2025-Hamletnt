@@ -10,20 +10,16 @@
             margin: 0;
             padding: 0;
             text-align: center;
+            background: url('https://images.unsplash.com/photo-1737894214298-feb9d237cf63?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
         }
         .navbar-custom {
-            background-color: #6c757d;
-        }
-        .navbar, .navbar-brand, .navbar-brand img {
-            width: 100%;
-            border: none;
-            padding: 0;
-            margin: 0;
-            display: block;
+            background-color: rgba(108, 117, 125, 0.8);
         }
         .top-bar {
             width: 100%;
-            background-color: #000;
+            background-color: rgba(0, 0, 0, 0.8);
             padding: 10px;
             display: flex;
             justify-content: right;
@@ -41,6 +37,7 @@
         }
         .nav-tabs .nav-link:hover {
             background-color: #333;
+            color: white;
         }
         .profile-img {
             width: 200px;
@@ -49,6 +46,7 @@
             object-fit: cover;
             display: block;
             margin: 100px auto 20px;
+            border: 5px solid white;
         }
         .container-box {
             width: 100%;
@@ -58,47 +56,54 @@
         .name-title {
             font-size: 24px;
             font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
         }
         .full-screen {
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            padding: 20px;
         }
         .content-container {
-            width: 50%;
-            height: 80%;
-            background-color: #434548;
+            width: 90%;
+            max-width: 800px;
+            background-color: rgba(67, 69, 72, 0.8);
             padding: 20px;
             border-radius: 10px;
-            position: absolute;
-            left: 10%;
-            top: 50%;
-            transform: translateY(-50%);
             text-align: left;
         }
         .sidebar {
-            width: 20%;
-            height: 80%;
-            background-color: #343a40;
+            width: 90%;
+            max-width: 400px;
+            background-color: rgba(52, 58, 64, 0.8);
             color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-            position: absolute;
-            right: 10%;
-            top: 50%;
-            transform: translateY(-50%);
-            text-align: left;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
         }
         .sidebar div {
-            width: 80%;
-            height: 45%;
-            background-color: #495057;
+            width: 100%;
+            background-color: rgba(73, 80, 87, 0.8);
+            padding: 10px;
             border-radius: 5px;
-            text-align: left;
+            margin-top: 10px;
+        }
+        @media (min-width: 768px) {
+            .full-screen {
+                flex-direction: row;
+            }
+            .content-container {
+                width: 50%;
+                margin-right: 20px;
+            }
+            .sidebar {
+                width: 30%;
+                max-width: 300px;
+                margin-top: 0;
+            }
         }
     </style>
 </head>
@@ -115,7 +120,7 @@
                 <a class="nav-link" href="#navbar2">Experience</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#navbar3">contact</a>
+                <a class="nav-link" href="#navbar3">Contact</a>
             </li>
         </ul>
     </div>
@@ -132,39 +137,33 @@
     </nav>
     
     <nav id="navbar2" class="navbar navbar-expand-lg navbar-dark bg-light full-screen">
-        <div class="content-container" style="color: white;">
-        <h2>Experience</h2>
-        <ul>
-            <li><strong>Flood Level Meter</strong> - This project utilizes IoT devices to measure water levels and send notifications via Line.
-                Technologies Used: Arduino, ESP32, Node-red</li>
-            <li><strong>Automatic Medicine Inventory</strong> - This project utilizes IoT and microcontroller technologies to design a smart medicine dispenser, enabling users to conveniently and Effective access medications as needed.
-                Technologies Used: Firebase, Raspberry Pi, Arduino, ESP32, VNC, Putty</li>
-            <li><strong>Waste Separator From Noise</strong> - This project utilizes IoT technology and microcontrollers to create a trash can capable of separating waste using sound.
-                Technologies Used: Raspberry Pi, ESP32, Step motor, VNC, 
-                       Jupyter Notebook, Putty</li>
-            <li><strong>AI Auto Management Inventory</strong> - Won second runner-up award in the AI JAM: Future Entrepreneur Business Innovation Competition at Sripathum University.
-                This project utilizes AI to develop a raw material/product inventory management system to improve management efficiency and reduce waste.
-                Technologies Used: Figma, Canva, Visual Studio</li>
-            <li><strong>AI Classification Cheese</strong> - This project utilizes AI to classify various types of cheese and provide detailed information about each type, including its characteristics, ingredients, composition, and the dishes it complements best.
-                Technologies Used: Figma, Canva, Visual Studio, Jupyter Notebook, AWS Cloud, Flask AP</li>
-        </ul>
+        <div class="content-container">
+            <h2>Experience</h2>
+            <ul>
+                <li><strong>Flood Level Meter</strong> - IoT device for measuring water levels and sending notifications.</li>
+                <li><strong>Automatic Medicine Inventory</strong> - Smart medicine dispenser using IoT.</li>
+                <li><strong>Waste Separator From Noise</strong> - Smart trash can that sorts waste using sound.</li>
+                <li><strong>AI Auto Management Inventory</strong> - AI-based inventory management system.</li>
+                <li><strong>AI Classification Cheese</strong> - AI system for cheese classification.</li>
+            </ul>
         </div>
-        <div class="sidebar"><div>
-            <h2>Skills</h2>
-                 <ul>
-                    <p>Python <p>
-                    <p>Javascript</p>
-                    <p>C/C++</p>
-                    <p>HTML</p>
-                    <p>CSS</p>
-                 </ul>
+        <div class="sidebar">
+            <div>
+                <h2>Skills</h2>
+                <ul>
+                    <li>Python</li>
+                    <li>Javascript</li>
+                    <li>C/C++</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                </ul>
             </div>
             <div>
-            <h2>Languages</h2>
+                <h2>Languages</h2>
                 <ul>
-                <p>Thai: Native</p>
-                <p>English: Intermediate</p>
-                <ul>
+                    <li>Thai: Native</li>
+                    <li>English: Intermediate</li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -173,10 +172,10 @@
         <section class="section">
             <h3 class="text-center">Contact</h3>
             <div class="d-flex justify-content-center gap-3">
-                <a href="https://www.instagram.com/shhop_x/?hl=th" target="_blank" class="btn btn-outline-dark">Instagram</a>
-                <a href="https://github.com/Chanomkaimok" target="_blank" class="btn btn-outline-dark">GitHub</a>
-                <a href="https://www.facebook.com/nuttaphat.aekkachon" target="_blank" class="btn btn-outline-dark">Facebook</a>
-                <a href="mailto:65010319@kmitl.ac.th" class="btn btn-outline-dark">Email</a>
+                <a href="https://www.instagram.com/shhop_x/?hl=th" target="_blank" class="btn btn-outline-light">Instagram</a>
+                <a href="https://github.com/Chanomkaimok" target="_blank" class="btn btn-outline-light">GitHub</a>
+                <a href="https://www.facebook.com/nuttaphat.aekkachon" target="_blank" class="btn btn-outline-light">Facebook</a>
+                <a href="mailto:65010319@kmitl.ac.th" class="btn btn-outline-light">Email</a>
             </div>
         </section>
     </nav>
