@@ -1,125 +1,187 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuttaphat Aekkachon - Resume</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <title>Multiple Navbars</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #000000;
+        body, html {
+            margin: 0;
+            padding: 0;
+            text-align: center;
         }
-        .container-custom {
+        .navbar-custom {
+            background-color: #6c757d;
+        }
+        .navbar, .navbar-brand, .navbar-brand img {
+            width: 100%;
+            border: none;
+            padding: 0;
+            margin: 0;
+            display: block;
+        }
+        .top-bar {
+            width: 100%;
+            background-color: #000;
+            padding: 10px;
             display: flex;
-            flex-wrap: wrap;
-            max-width: 100%;
-            background: #FFFAF0;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            justify-content: right;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
         }
-        .sidebar {
-            width: 30%;
-            background: #ffffff;
-            padding: 15px;
+        .nav-tabs .nav-link {
+            background-color: white;
+            color: black;
+            border-radius: 0px;
+            margin-left: 5px;
+        }
+        .nav-tabs .nav-link:hover {
+            background-color: #333;
+        }
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            margin: 100px auto 20px;
+        }
+        .container-box {
+            width: 100%;
+            text-align: center;
+            padding-top: 20px;
+        }
+        .name-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .full-screen {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .content-container {
+            width: 50%;
+            height: 80%;
+            background-color: #434548;
+            padding: 20px;
+            border-radius: 10px;
+            position: absolute;
+            left: 10%;
+            top: 50%;
+            transform: translateY(-50%);
             text-align: left;
         }
-        .sidebar .profile-pic {
-            width: 100%;
-            height: 450px;
-            background: url('https://scontent.fbkk6-2.fna.fbcdn.net/v/t39.30808-6/476156618_1876642609535248_4499437835790076154_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=wT9yP1_hS98Q7kNvgGvpzWY&_nc_zt=23&_nc_ht=scontent.fbkk6-2.fna&_nc_gid=AJSk4EG-xP22_VcaPKGOgT3&oh=00_AYBGqZzFzFVLLb6g_SqrJvteY8nYHtzXDfgBpZ4yJoWTVQ&oe=67ABB5AC') no-repeat center;
-            background-size: cover;
+        .sidebar {
+            width: 20%;
+            height: 80%;
+            background-color: #343a40;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: left;
         }
-        .content {
-            width: 70%;
-            padding: 20px;
-            color: #000000;
-        }
-        header {
-            background: #FFF8DC;
-            padding: 20px;
-            font-weight: bold;
-            font-size: 50px;
-            color: #F4A460;
-        }
-        .section {
-            margin: 20px 0;
-            border-bottom: 3px solid #F4A460;
-            padding-bottom: 10px;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        ul li {
-            background: #FFDEAD;
-            margin: 5px 0;
-            padding: 20px;
+        .sidebar div {
+            width: 80%;
+            height: 45%;
+            background-color: #495057;
+            border-radius: 5px;
+            text-align: left;
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-light">
-        <div class="container">
-            <a class="navbar-brand text-dark" href="#">Naekkach</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link text-dark" href="index.html">Home</a></li>
-                </ul>
+    <div class="top-bar">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#navbar1">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#navbar2">Experience</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#navbar3">contact</a>
+            </li>
+        </ul>
+    </div>
+    
+    <img src="https://scontent.fbkk6-2.fna.fbcdn.net/v/t39.30808-6/476156618_1876642609535248_4499437835790076154_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=wT9yP1_hS98Q7kNvgGvpzWY&_nc_zt=23&_nc_ht=scontent.fbkk6-2.fna&_nc_gid=AJSk4EG-xP22_VcaPKGOgT3&oh=00_AYBGqZzFzFVLLb6g_SqrJvteY8nYHtzXDfgBpZ4yJoWTVQ&oe=67ABB5AC" alt="Profile Image" class="profile-img">
+    
+    <div class="container-box">
+        <div class="name-title">Nuttaphat Aekkachon</div>
+        IOT INFORMATION
+    </div>
+
+    <nav id="navbar1" class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"></a>
+    </nav>
+    
+    <nav id="navbar2" class="navbar navbar-expand-lg navbar-dark bg-light full-screen">
+        <div class="content-container" style="color: white;">
+        <h2>Experience</h2>
+        <ul>
+            <li><strong>Flood Level Meter</strong> - This project utilizes IoT devices to measure water levels and send notifications via Line.
+                Technologies Used: Arduino, ESP32, Node-red</li>
+            <li><strong>Automatic Medicine Inventory</strong> - This project utilizes IoT and microcontroller technologies to design a smart medicine dispenser, enabling users to conveniently and Effective access medications as needed.
+                Technologies Used: Firebase, Raspberry Pi, Arduino, ESP32, VNC, Putty</li>
+            <li><strong>Waste Separator From Noise</strong> - This project utilizes IoT technology and microcontrollers to create a trash can capable of separating waste using sound.
+                Technologies Used: Raspberry Pi, ESP32, Step motor, VNC, 
+                       Jupyter Notebook, Putty</li>
+            <li><strong>AI Auto Management Inventory</strong> - Won second runner-up award in the AI JAM: Future Entrepreneur Business Innovation Competition at Sripathum University.
+                This project utilizes AI to develop a raw material/product inventory management system to improve management efficiency and reduce waste.
+                Technologies Used: Figma, Canva, Visual Studio</li>
+            <li><strong>AI Classification Cheese</strong> - This project utilizes AI to classify various types of cheese and provide detailed information about each type, including its characteristics, ingredients, composition, and the dishes it complements best.
+                Technologies Used: Figma, Canva, Visual Studio, Jupyter Notebook, AWS Cloud, Flask AP</li>
+        </ul>
+        </div>
+        <div class="sidebar"><div>
+            <h2>Skills</h2>
+                 <ul>
+                    <p>Python <p>
+                    <p>Javascript</p>
+                    <p>C/C++</p>
+                    <p>HTML</p>
+                    <p>CSS</p>
+                 </ul>
+            </div>
+            <div>
+            <h2>Languages</h2>
+                <ul>
+                <p>Thai: Native</p>
+                <p>English: Intermediate</p>
+                <ul>
             </div>
         </div>
     </nav>
-    <div class="container-custom mt-5 pt-5">
-        <div class="sidebar">
-            <div class="profile-pic"></div>
-            <p>📞 093-082-2657</p>
-            <p>📧 nuttaphat.shop@gmail.com</p>
-            <p>🏠 663/1 Soi Chalongkrung 1, Lat Krabang, Bangkok 10520, Thailand</p>
-            <h2>Education</h2>
-            <p><strong>King Mongkut's Institute of Technology Ladkrabang</strong></p>
-            <p>Bachelor of Engineer in Physics & IoT System Engineering</p>
-            <h2>Skills</h2>
-            <ul>
-                <li>Python</li>
-                <li>Javascript</li>
-                <li>C/C++</li>
-                <li>HTML</li>
-                <li>CSS</li>
-            </ul>
-            <h2>Languages</h2>
-            <p>Thai: Native</p>
-            <p>English: Intermediate</p>
-        </div>
-        <div class="content">
-            <header>NUTTAPHAT AEKKACHON</header>
-            <section class="section">
-                <h2>Profile</h2>
-                <p>Third-year Physics & IoT System Engineering student specializing in IoT and machine learning.</p>
-            </section>
-            <section class="section">
-                <h2>Experience</h2>
-                <ul>
-                    <li><strong>Flood Level Meter</strong> - Uses IoT devices to measure water levels and notify via Line.</li>
-                    <li><strong>Automatic Medicine Inventory</strong> - Smart medicine dispenser project.</li>
-                    <li><strong>Waste Separator From Noise</strong> - Trash can using sound to separate waste.</li>
-                    <li><strong>AI Auto Management Inventory</strong> - AI-based inventory management system.</li>
-                    <li><strong>AI Classification Cheese</strong> - AI project classifying cheese types.</li>
-                </ul>
-            </section>
-            <section class="section">
-                <h3 class="text-center">Contact</h3>
-                <div class="d-flex justify-content-center gap-3">
-                    <a href="https://www.instagram.com/shhop_x/?hl=th" target="_blank" class="btn btn-outline-dark">Instagram</a>
-                    <a href="https://github.com/Chanomkaimok" target="_blank" class="btn btn-outline-dark">GitHub</a>
-                    <a href="https://www.facebook.com/nuttaphat.aekkachon" target="_blank" class="btn btn-outline-dark">Facebook</a>
-                    <a href="mailto:65010319@kmitl.ac.th" class="btn btn-outline-dark">Email</a>
-                </div>
-            </section>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <nav id="navbar3" class="navbar navbar-expand-lg navbar-custom">
+        <section class="section">
+            <h3 class="text-center">Contact</h3>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="https://www.instagram.com/shhop_x/?hl=th" target="_blank" class="btn btn-outline-dark">Instagram</a>
+                <a href="https://github.com/Chanomkaimok" target="_blank" class="btn btn-outline-dark">GitHub</a>
+                <a href="https://www.facebook.com/nuttaphat.aekkachon" target="_blank" class="btn btn-outline-dark">Facebook</a>
+                <a href="mailto:65010319@kmitl.ac.th" class="btn btn-outline-dark">Email</a>
+            </div>
+        </section>
+    </nav>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
