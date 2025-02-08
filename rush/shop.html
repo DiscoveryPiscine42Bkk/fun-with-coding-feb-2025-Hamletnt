@@ -1,151 +1,125 @@
-<!DOCTYPE html> <!-- กำหนดว่าเอกสารนี้เป็น HTML5 -->
-<html lang="en"> <!-- เริ่มต้นเอกสาร HTML และกำหนดภาษาหลักเป็นภาษาอังกฤษ -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8"> <!-- กำหนดการเข้ารหัสตัวอักษรเป็น UTF-8 เพื่อรองรับหลายภาษา -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ทำให้เว็บไซต์รองรับการแสดงผลบนอุปกรณ์ต่าง ๆ -->
-    <title>Nuttaphat Aekkachon - Resume</title> <!-- ชื่อที่แสดงบนแท็บของเบราว์เซอร์ -->
-    <link rel="stylesheet" href="styles.css"> <!-- ลิงก์ไปยังไฟล์ CSS ภายนอก (หากมี) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuttaphat Aekkachon - Resume</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            font-family: Arial, sans-serif; /* กำหนดแบบอักษร */
-            margin: 0; /* ลบระยะขอบของหน้าเว็บ */
-            padding: 0; /* ลบระยะห่างภายในของหน้าเว็บ */
-            background-color: #000000; /* กำหนดสีพื้นหลังของเว็บ */
+            font-family: Arial, sans-serif;
+            background-color: #000000;
         }
-        .container {             /*ครึ่งขวา เจค*/
-            display: flex; /* ใช้ flexbox เพื่อจัดเรียงองค์ประกอบภายใน */
-            width: 100%;           /*ความกว้างหน้ากระดาษ*/
-            margin: 0px auto;      /*ระยะห่างหน้ากระดาษด้านบน*/
-            background: #FFFAF0; /*สีพื้นหลังของ container */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* เงารอบ container */
+        .container-custom {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 100%;
+            background: #FFFAF0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .sidebar {                   /*(ครึ่งซ้าย)*/
-            width: 30%;              /*กำหนดความกว้างของ Sidebar*/
-            background: #ffffff;   /* สีพื้นหลังของ Sidebar*/
-            padding: 0px;            /* ระยะห่างของ2 ฝั่งใน Sidebar */
-            text-align: left;        /* จัดข้อความซ้ายสุด */
+        .sidebar {
+            width: 30%;
+            background: #ffffff;
+            padding: 15px;
+            text-align: left;
         }
-        .sidebar p{                  /*ข้อความครึ่งซ้าย(ในsidebar)*/
-            padding-left: 15px;
-            margin: 5px 0;
-        }
-        .sidebar h2{                 /*ข้อความครึ่งซ้าย(ในsidebar)*/
-            padding-left: 10px;
-            margin-block: 20px 0;
-        }
-
         .sidebar .profile-pic {
-            width: 100%;                     /*ทำให้รูปภาพเต็มพื้นที่ Sidebar */
-            height: 450px;                   /*กำหนดความสูงของรูปภาพ */
-            background: url('https://scontent.fbkk6-2.fna.fbcdn.net/v/t39.30808-6/476156618_1876642609535248_4499437835790076154_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=wT9yP1_hS98Q7kNvgGvpzWY&_nc_zt=23&_nc_ht=scontent.fbkk6-2.fna&_nc_gid=AJSk4EG-xP22_VcaPKGOgT3&oh=00_AYBGqZzFzFVLLb6g_SqrJvteY8nYHtzXDfgBpZ4yJoWTVQ&oe=67ABB5AC') no-repeat center; /* ใส่รูปภาพเป็นพื้นหลัง */
-            background-size: 120% auto;      /*ขยายขนาดรูป และความสูงอัตโนมัติ */
-            background-position: top left;   /*แสดงครึ่งบนของรูปภาพ */
-
+            width: 100%;
+            height: 450px;
+            background: url('https://scontent.fbkk6-2.fna.fbcdn.net/v/t39.30808-6/476156618_1876642609535248_4499437835790076154_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=wT9yP1_hS98Q7kNvgGvpzWY&_nc_zt=23&_nc_ht=scontent.fbkk6-2.fna&_nc_gid=AJSk4EG-xP22_VcaPKGOgT3&oh=00_AYBGqZzFzFVLLb6g_SqrJvteY8nYHtzXDfgBpZ4yJoWTVQ&oe=67ABB5AC') no-repeat center;
+            background-size: cover;
         }
-        .content {           /*(contrainer)*/
-            width: 70%;      /*กำหนดความกว้างของเนื้อหา*/
-            padding: 0px;    /*ระยะห่าง ซ้าย-ขวา ในเนื้อหา */
+        .content {
+            width: 70%;
+            padding: 20px;
             color: #000000;
         }
-        .content h2{
-            padding-left: 0px;
-            margin-block: 05px 0;
+        header {
+            background: #FFF8DC;
+            padding: 20px;
+            font-weight: bold;
+            font-size: 50px;
+            color: #F4A460;
         }
-        header {                     /*กรอบ ชื่อ*/
-            text-align: left;        /*จัดข้อความตรงกลาง */
-            background: #FFF8DC;   /* กำหนดสีพื้นหลังของหัวข้อ */
-            padding: 20px;           /* ระยะห่างภายในหัวข้อ */
-            font-weight: bold;       /* ทำให้ตัวหนังสือหนา */
-            font-size: 50px;         /*ขนาดชื่อ*/
-            color: #F4A460;        /*สีชื่อ*/
+        .section {
+            margin: 20px 0;
+            border-bottom: 3px solid #F4A460;
+            padding-bottom: 10px;
         }
-        h1, h2 {
-            color: #F4A460; /* กำหนดสีของหัวข้อ */
+        ul {
+            list-style-type: none;
+            padding: 0;
         }
-        .section {                                 
-            margin: 0px 0;                         /*ระยะห่างระหว่างแต่ละส่วน */
-            border-bottom: 3px solid #F4A460;    /*เส้นขีดล่างแบ่งแต่ละส่วน */
-            padding-bottom: 10px;                  /*ระยะห่างภายในแต่ละส่วน */
-            color: #ffffff;
+        ul li {
+            background: #FFDEAD;
+            margin: 5px 0;
+            padding: 20px;
         }
-        ul {                                       /*experiance*/
-            list-style-type: none;                 /*เอาเครื่องหมายหน้ารายการออก*/
-            padding: 0px;                          /*ลบระยะห่างภายใน ul*/
-        }
-        ul li {                                    /*กรอบในเนื้อหาexperiance*/
-            background: #FFDEAD;                 /*กำหนดสีพื้นหลังของโปรเจค*/
-            margin: 5px 0;                         /*ระยะห่างระหว่างข้อ*/
-            padding: 20px;                         /*ความกว้าง*/
-            /*border-left: 5px solid #000000;      /*แถบด้านซ้ายของรายการ*/
-        }
-        .navbar-nav{
-            background-color: none;
-        }
-        .nav-item{
-            background-color: none;
-        }
-
     </style>
 </head>
 <body>
-      <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-light">
         <div class="container">
-            <a class="navbar-brand" href="#" style="color: #000000;">Nawangja</a>
+            <a class="navbar-brand text-dark" href="#">Naekkach</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="index.html">Home</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container">                    <!-- กล่องหลักที่บรรจุ Sidebar และ Content -->
-        <div class="sidebar">                  <!-- Sidebar สำหรับข้อมูลส่วนตัว -->
-            <div class="profile-pic"></div>    <!-- พื้นที่สำหรับแสดงรูปภาพ -->
-                <p>📞 093-082-2657</p>             <!-- หมายเลขโทรศัพท์ -->
-                <p>📧 nuttaphat.shop@gmail.com</p> <!-- อีเมล -->
-                <p>🏠 663/1 Soi Chalongkrung 1,</p> 
-                <p>Lat Krabang, Bangkok 10520, Thailand</p> <!-- ที่อยู่ -->
-            <h2>Education</h2>    <!-- หัวข้อการศึกษา -->
-                <p><strong>King Mongkut's Institute of Technology Ladkrabang</strong></p> <!-- ชื่อมหาวิทยาลัย -->
-                <p>Bachelor of Engineer in Physics & IoT System Engineering</p> <!-- รายละเอียดการศึกษา -->
-                <h2>Skills</h2>      <!-- หัวข้อทักษะ -->
-                 <ul>
-                    <p>Python <p>
-                    <p>Javascript</p>
-                    <p>C/C++</p>
-                    <p>HTML</p>
-                    <p>CSS</p>
-                 </ul>
+    <div class="container-custom mt-5 pt-5">
+        <div class="sidebar">
+            <div class="profile-pic"></div>
+            <p>📞 093-082-2657</p>
+            <p>📧 nuttaphat.shop@gmail.com</p>
+            <p>🏠 663/1 Soi Chalongkrung 1, Lat Krabang, Bangkok 10520, Thailand</p>
+            <h2>Education</h2>
+            <p><strong>King Mongkut's Institute of Technology Ladkrabang</strong></p>
+            <p>Bachelor of Engineer in Physics & IoT System Engineering</p>
+            <h2>Skills</h2>
+            <ul>
+                <li>Python</li>
+                <li>Javascript</li>
+                <li>C/C++</li>
+                <li>HTML</li>
+                <li>CSS</li>
+            </ul>
             <h2>Languages</h2>
-                <p>Thai: Native</p> <!-- ระดับความสามารถภาษาไทย -->
-                <p>English: Intermediate</p> <!-- ระดับความสามารถภาษาอังกฤษ -->
+            <p>Thai: Native</p>
+            <p>English: Intermediate</p>
         </div>
-        <div class="content">                <!-- ส่วนของเนื้อหา -->
+        <div class="content">
             <header>NUTTAPHAT AEKKACHON</header>
+            <section class="section">
                 <h2>Profile</h2>
-                <p>Third-year Physics & IoT System Engineering student specializing in IoT and machine learning. Proficient in C, and Python with a foundation in analytics, iot, and machine learning principles. Eager to apply knowledge and skills to real-world data challenges, with a commitment to continuous learning and delivering innovative solutions.</p> <!-- คำอธิบายโปรไฟล์ -->
+                <p>Third-year Physics & IoT System Engineering student specializing in IoT and machine learning.</p>
             </section>
-            <section class="section">        <!-- ส่วนของประสบการณ์ -->
+            <section class="section">
                 <h2>Experience</h2>
                 <ul>
-                    <li><strong>Flood Level Meter</strong> - This project utilizes IoT devices to measure water levels and send notifications via Line.
-                        Technologies Used: Arduino, ESP32, Node-red</li>
-                    <li><strong>Automatic Medicine Inventory</strong> - This project utilizes IoT and microcontroller technologies to design a smart medicine dispenser, enabling users to conveniently and Effective access medications as needed.
-                        Technologies Used: Firebase, Raspberry Pi, Arduino, ESP32, VNC, Putty</li>
-                    <li><strong>Waste Separator From Noise</strong> - This project utilizes IoT technology and microcontrollers to create a trash can capable of separating waste using sound.
-                        Technologies Used: Raspberry Pi, ESP32, Step motor, VNC, 
-                               Jupyter Notebook, Putty</li>
-                    <li><strong>AI Auto Management Inventory</strong> - Won second runner-up award in the AI JAM: Future Entrepreneur Business Innovation Competition at Sripathum University.
-                        This project utilizes AI to develop a raw material/product inventory management system to improve management efficiency and reduce waste.
-                        Technologies Used: Figma, Canva, Visual Studio</li>
-                    <li><strong>AI Classification Cheese</strong> - This project utilizes AI to classify various types of cheese and provide detailed information about each type, including its characteristics, ingredients, composition, and the dishes it complements best.
-                        Technologies Used: Figma, Canva, Visual Studio, Jupyter Notebook, AWS Cloud, Flask AP</li>
+                    <li><strong>Flood Level Meter</strong> - Uses IoT devices to measure water levels and notify via Line.</li>
+                    <li><strong>Automatic Medicine Inventory</strong> - Smart medicine dispenser project.</li>
+                    <li><strong>Waste Separator From Noise</strong> - Trash can using sound to separate waste.</li>
+                    <li><strong>AI Auto Management Inventory</strong> - AI-based inventory management system.</li>
+                    <li><strong>AI Classification Cheese</strong> - AI project classifying cheese types.</li>
                 </ul>
+            </section>
+            <section class="section">
+                <h3 class="text-center">Contact</h3>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="https://www.instagram.com/shhop_x/?hl=th" target="_blank" class="btn btn-outline-dark">Instagram</a>
+                    <a href="https://github.com/Chanomkaimok" target="_blank" class="btn btn-outline-dark">GitHub</a>
+                    <a href="https://www.facebook.com/nuttaphat.aekkachon" target="_blank" class="btn btn-outline-dark">Facebook</a>
+                    <a href="mailto:65010319@kmitl.ac.th" class="btn btn-outline-dark">Email</a>
+                </div>
+            </section>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

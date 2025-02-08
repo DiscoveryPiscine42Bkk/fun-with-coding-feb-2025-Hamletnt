@@ -12,12 +12,10 @@ body {
     z-index: -1;
 }
 
-/* เริ่มต้น navbar ไม่มีพื้นหลัง */
 .navbar {
     transition: background-color 0.3s ease; /* ทำให้การเปลี่ยนแปลงพื้นหลังนุ่มนวล */
 }
 
-/* เมื่อ navbar ถูกเลื่อนผ่าน จะเปลี่ยนพื้นหลังเป็นสีดำ */
 .navbar-scrolled {
     background-color: rgba(0, 0, 0, 0.8); /* สีดำทึบ */
 }
@@ -73,40 +71,40 @@ body {
     align-items: center;
 }
 #Experience {
-    background-color: #f0f0f0; /* พื้นหลังสีเทาอ่อน */
-    color: #333; /* ข้อความเป็นสีดำ */
+    background-color: #f0f0f0;
+    color: #333;
     padding: 40px 0;
 }
 
 #Experience .accordion-button {
-    background-color: #fff; /* ปุ่มให้พื้นหลังสีขาว */
-    color: #333; /* ปุ่มข้อความเป็นสีดำ */
-    border: 1px solid #ccc; /* ขอบปุ่มเป็นสีเทาอ่อน */
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
 }
 
 #Experience .accordion-button:focus {
-    box-shadow: none; /* เอาเงาจากการคลิกออก */
+    box-shadow: none;
 }
 
 #Experience .accordion-body {
-    background-color: #fff; /* พื้นหลังของ body ใน accordion ให้เป็นสีขาว */
-    color: #333; /* ข้อความใน body เป็นสีดำ */
+    background-color: #fff;
+    color: #333;
 }
 
 #Experience .accordion-item {
-    border-bottom: 1px solid #ccc; /* ขอบล่างของแต่ละรายการใน accordion */
+    border-bottom: 1px solid #ccc;
 }
 
 #Experience h3 {
-    color: #333; /* หัวข้อ section เป็นสีดำ */
+    color: #333;
 }
 
 #Experience a {
-    color: #007bff; /* ลิงก์เป็นสีน้ำเงิน */
+    color: #007bff; 
 }
 
 #Experience a:hover {
-    color: #0056b3; /* สีลิงก์เมื่อ hover */
+    color: #0056b3; 
 }
 
 .footer {
